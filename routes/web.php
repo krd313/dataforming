@@ -34,6 +34,13 @@ Route::get('/', function () {
     Route::get('/customer/delete/{id}', 'CustomerDelete')->name('customer.delete');
 });
 
+ // Customer All Route
+ Route::controller(Cus_CustomerController::class)->group(function () {
+    Route::get('/cus_customer/all', 'Cus_CustomerAll')->name('cu_customer.all');
+
+});
+
+
 
 
 
