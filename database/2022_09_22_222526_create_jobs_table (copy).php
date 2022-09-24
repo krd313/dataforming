@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->tinyInteger('status')->default(1);
+            $table->integer('customer_id');
+            $table->integer('cuscustomer_id');
+            $table->integer('customerjob_id');
+            $table->integer('customerjob_order')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('jobs');
     }
 };

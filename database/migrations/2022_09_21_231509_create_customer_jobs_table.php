@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('states', function (Blueprint $table) {
+        Schema::create('customer_jobs', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->tinyInteger('status')->default(1);
+            $table->string('order')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('states');
+        Schema::dropIfExists('customer_jobs');
     }
 };

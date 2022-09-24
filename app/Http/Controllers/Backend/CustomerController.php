@@ -46,7 +46,7 @@ class CustomerController extends Controller
            'address_1' => $request->address_1,
            'address_2' => $request->address_2,
            'city' => $request->city,
-           'state' => $request->state,
+           'state_id' => $request->state_id,
            'code' => $request->code,
            'note' => $request->note,
            'created_by' => Auth::user()->id,
@@ -65,17 +65,18 @@ class CustomerController extends Controller
 } // End Method
 
 public function CustomerShow($id){
-
+    $state = State::all();
     $customer = Customer::findOrFail($id);
-    return view('backend.customer.customer_show',compact('customer'));
+    return view('backend.customer.customer_show',compact('customer','state'));
 
 
 } // End Method
 
 public function CustomerEdit($id){
 
+    $state = State::all();
     $customer = Customer::findOrFail($id);
-    return view('backend.customer.customer_edit',compact('customer'));
+    return view('backend.customer.customer_edit',compact('customer','state'));
 
 
 } // End Method
@@ -102,7 +103,7 @@ public function CustomerUpdate(Request $request,$id){
            'address_1' => $request->address_1,
            'address_2' => $request->address_2,
            'city' => $request->city,
-           'state' => $request->state_id,
+           'state_id' => $request->state_id,
            'code' => $request->code,
            'note' => $request->note,
            'updated_by' => Auth::user()->id,

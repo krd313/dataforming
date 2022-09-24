@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\JobController;
 use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\Backend\CusCustomerController;
+use App\Http\Controllers\Backend\CustomerJobController;
 
 
 Route::get('/', function () {
@@ -34,15 +37,42 @@ Route::get('/', function () {
     Route::get('/customer/delete/{id}', 'CustomerDelete')->name('customer.delete');
 });
 
- // Customer All Route
- Route::controller(Cus_CustomerController::class)->group(function () {
-    Route::get('/cus_customer/all', 'Cus_CustomerAll')->name('cu_customer.all');
+ // CusCustomer All Route
+ Route::controller(CusCustomerController::class)->group(function () {
+    Route::get('/cuscustomer/all', 'CusCustomerAll')->name('cuscustomer.all');
+    Route::get('/cuscustomer/add', 'CusCustomerAdd')->name('cuscustomer.add');
+    Route::post('/cuscustomer/store', 'CusCustomerStore')->name('cuscustomer.store');
+    Route::get('/cuscustomer/edit/{id}', 'CusCustomerEdit')->name('cuscustomer.edit');
+    Route::post('/cuscustomer/update/{id}', 'CusCustomerUpdate')->name('cuscustomer.update');
+    Route::get('/cuscustomer/delete/{id}', 'CusCustomerDelete')->name('cuscustomer.delete');
 
 });
 
+ // Customer Job All Route
+ Route::controller(CustomerJobController::class)->group(function () {
+    Route::get('/customerjob/all', 'CustomerJobAll')->name('customerjob.all');
+    Route::get('/customerjob/add', 'CustomerJobAdd')->name('customerjob.add');
+    Route::post('/customerjob/store', 'CustomerJobStore')->name('customerjob.store');
+    Route::get('/customerjob/edit/{id}', 'CustomerJobEdit')->name('customerjob.edit');
+    Route::post('/customerjob/update/{id}', 'CustomerJobUpdate')->name('customerjob.update');
+    Route::get('/customerjob/delete/{id}', 'CustomerJobDelete')->name('customerjob.delete');
+});
 
+ // Job All Route
+ Route::controller(JobController::class)->group(function () {
+    Route::get('/job/all', 'JobAll')->name('job.all');
+    Route::get('/job/add', 'JobAdd')->name('job.add');
+    Route::post('/job/store', 'JobStore')->name('job.store');
+    Route::get('/job/edit/{id}', 'JobEdit')->name('job.edit');
+    Route::post('/job/update', 'JobUpdate')->name('job.update');
+    Route::get('/job/delete/{id}', 'JobDelete')->name('job.delete');
+});
 
+ // Invoicing All Route
+ Route::controller(InvoiceController::class)->group(function () {
+    Route::get('/invoice/all', 'InvoiceAll')->name('invoice.all');
 
+});
 
 
 Route::get('/dashboard', function () {

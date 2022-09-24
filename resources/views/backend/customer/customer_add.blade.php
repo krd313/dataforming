@@ -28,7 +28,7 @@
 
             {{-- <form > --}}
 
-            <form method="post" action="{{ route('customer.store') }}" >
+            <form method="post" action="{{ route('customer.store') }}" id="myForm">
                     @csrf
 
 
@@ -36,7 +36,7 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label for="validationCustom01" class="form-label">Company Name</label>
-                            <input name="company_name" type="text" class="form-control" >
+                            <input name="name" type="text" class="form-control" >
                         @error('company_name')
                         <span class="text-danger"> {{ $message }} </span>
                         @enderror
@@ -45,8 +45,8 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label for="validationCustom01" class="form-label">Contact Name</label>
-                            <input name="name" type="text" class="form-control" >
-                        @error('name')
+                            <input name="contact_name" type="text" class="form-control" >
+                        @error('contact_name')
                         <span class="text-danger"> {{ $message }} </span>
                         @enderror
                         </div>
@@ -96,13 +96,23 @@
 
                             <div class="col-md-3">
                                 <label for="inputState" class="form-label">State</label>
-                                <select id="inputState" class="form-select">
+                                <select name="state_id" id="inputState" class="form-select">
                                     <option selected="">Choose...</option>
                                     @foreach($state as $supp)
                                     <option value="{{ $supp->id }}">{{ $supp->state }}</option>
                                 @endforeach
                                 </select>
                             </div>
+                            <div class="col-md-3">
+                                <div class="mb-3">
+                                    <label for="validationCustom01" class="form-label">Code</label>
+                                    <input name="code" type="text" class="form-control" >
+                                @error('mobile_no')
+                                <span class="text-danger"> {{ $message }} </span>
+                                @enderror
+                                </div>
+                            </div>
+
 
                         </div>
 
@@ -199,6 +209,36 @@
 </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                name: {
+                    required : true,
+                },
+
+            },
+            messages :{
+                name: {
+                    required : 'Please Enter Your Name',
+                },
+
+            },
+            errorElement : 'span',
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
+        });
+    });
+
+</script>
 
 
 

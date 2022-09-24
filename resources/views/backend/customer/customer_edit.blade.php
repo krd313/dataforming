@@ -28,16 +28,18 @@
 
             {{-- <form > --}}
 
-            <form method="post" action="{{ route('customer.update',$customer->id) }}" >
+            <form method="post" action="{{ route('job.update',$customer->id) }}" >
                     @csrf
+
+                    <input type="hidden" name="id" value="{{ $job->id }}">
 
 
                 <div class="row">
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label for="validationCustom01" class="form-label">Company Name</label>
-                            <input name="company_name" type="text" value="{{ $customer->name }}" class="form-control" >
-                        @error('company_name')
+                            <input name="name" type="text" value="{{ $customer->name }}" class="form-control" >
+                        @error('name')
                         <span class="text-danger"> {{ $message }} </span>
                         @enderror
                         </div>
@@ -45,8 +47,8 @@
                     <div class="col-md-3">
                         <div class="mb-3">
                             <label for="validationCustom01" class="form-label">Contact Name</label>
-                            <input name="name" type="text" value="{{ $customer->contact_name }}" class="form-control" >
-                        @error('name')
+                            <input name="contact_name" type="text" value="{{ $customer->contact_name }}" class="form-control" >
+                        @error('contact_name')
                         <span class="text-danger"> {{ $message }} </span>
                         @enderror
                         </div>
@@ -93,15 +95,27 @@
                                 @enderror
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">State</label>
+                                <select name="state_id" id="inputState" class="form-select">
+                                    <option selected="">Choose...</option>
+                                    @foreach($state as $supp)
+
+                                    <option value="{{ $supp->id }}" {{ $supp->id == $customer->state_id ? 'selected' : '' }}   >{{ $supp->state }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="mb-3">
-                                    <label for="validationCustom01" class="form-label">State</label>
-                                    <input name="state" type="text" value="{{ $customer->state }}"  class="form-control" >
-                                @error('state')
+                                    <label for="validationCustom01" class="form-label">Code</label>
+                                    <input name="code" type="text" value="{{ $customer->code }}"  class="form-control" >
+                                @error('mobile_no')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                                 </div>
                             </div>
+
+
                         </div>
 
 

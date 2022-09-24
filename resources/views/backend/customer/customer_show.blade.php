@@ -93,11 +93,24 @@
                                 @enderror
                                 </div>
                             </div>
-                            <div class="col-md-2">
+
+
+
+                            <div class="col-md-3">
+                                <label for="inputState" class="form-label">State</label>
+                                <select name="state_id" id="inputState" class="form-control">
+
+                                    @foreach($state as $supp)
+
+                                    <option value="{{ $supp->id }}" {{ $supp->id == $customer->state_id ? 'selected' : '' }}   >{{ $supp->state }}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="mb-3">
-                                    <label for="validationCustom01" class="form-label">State</label>
-                                    <input name="state" type="text" value="{{ $customer->state }}"  class="form-control" >
-                                @error('state')
+                                    <label for="validationCustom01" class="form-label">Code</label>
+                                    <input name="mobile_no" type="text" value="{{ $customer->code }}"  class="form-control" >
+                                @error('code')
                                 <span class="text-danger"> {{ $message }} </span>
                                 @enderror
                                 </div>
