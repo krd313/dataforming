@@ -10,7 +10,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                        <h4 class="mb-sm-0">Job Add</h4>
+                                        <h4 class="mb-sm-0">Job Edit</h4>
                                     </div>
                                 </div>
                             </div>
@@ -21,15 +21,12 @@
     <div class="card">
         <div class="card-body">
             <a href="{{ route('job.all') }}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-level-up-alt">   Job List</i></a> <br>  <br>
-            <h4 class="card-title">Job Add </h4><br>
+            <h4 class="card-title">Job Edit </h4><br>
 
 
 
             <form method="post" action="{{route('job.store')}}" id="myForm" >
                 @csrf
-
-
-
 
 
               <!-- end row -->
@@ -40,7 +37,7 @@
                         <select name="customer_id" class="form-select" aria-label="Default select example">
                             <option selected="">Open this select menu</option>
                             @foreach($customer as $cus)
-                            <option value="{{ $cus->id }}">{{ $cus->name }}</option>
+                            <option value="{{ $cus->id }}" {{ $cus->id== $job->customer_id ? 'selected' : '' }}>{{ $cus->name }}</option>
                             @endforeach
                             </select>
                         </div>
@@ -52,9 +49,9 @@
                 <label for="validationCustom01" class="form-label">Customer Customer</label>
                     <div class="mb-3">
                     <select name="cuscustomer_id" class="form-select" aria-label="Default select example">
-                        <option selected="">Open this select menu</option>
+                        <option selected=""></option>
                         @foreach($cuscustomer as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
+                        <option value="{{$item->id}}" {{ $item->id== $job->cuscustomer_id ? 'selected' : '' }}>{{$item->name}}</option>
                         @endforeach
                         </select>
                     </div>
@@ -66,9 +63,9 @@
             <label for="validationCustom01" class="form-label">Job Description</label>
                 <div class="mb-3">
                 <select name="customerjob_id" class="form-select" aria-label="Default select example">
-                    <option selected="">0</option>
+                    <option selected=""></option>
                     @foreach($customerjob as $item)
-                    <option value="{{$item->id}}">{{$item->name}}</option>
+                    <option value="{{$item->id}}" {{ $item->id== $job->customerjob_id ? 'selected' : '' }}>{{$item->name}}</option>
                     @endforeach
                     </select>
                 </div>
@@ -80,9 +77,9 @@
             <label for="validationCustom01" class="form-label">Order No</label>
                 <div class="mb-3">
                 <select name="customerjob_order" class="form-select" aria-label="Default select example">
-                    <option selected="">0</option>
+                    <option selected=""></option>
                     @foreach($customerjob as $item)
-                    <option value="{{$item->id}}">{{$item->order}}</option>
+                    <option value="{{$item->id}}" {{ $item->id== $job->customerjob_order ? 'selected' : '' }}>{{$item->order}}</option>
                     @endforeach
                     </select>
                 </div>
@@ -97,7 +94,7 @@
 
 
 
-<input type="submit" class="btn btn-info waves-effect waves-light" value="Add Job ">
+<input type="submit" class="btn btn-info waves-effect waves-light" value="Update Job ">
             </form>
 
 

@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Jobs All</h4>
+                                    <h4 class="mb-sm-0">Customer All</h4>
 
 
 
@@ -23,43 +23,42 @@
             <div class="card">
                 <div class="card-body">
 
-                    <a href="{{route('job.add')}}" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-plus-circle"> Add Job</i></a> <br>  <br>
+                    <a href="" class="btn btn-dark btn-rounded waves-effect waves-light" style="float:right;"><i class="fas fa-plus-circle"> Add Job </i></a> <br>  <br>
 
-                    <h4 class="card-title">All Jobs </h4>
+                    <h4 class="card-title">Job List </h4>
 
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
-                            <th width="5%">Sl</th>
+                            <th>Sl</th>
                             <th>Customer</th>
-                            <th>Cus Cus</th>
+                            <th>Cus Customer</th>
                             <th>Description</th>
-                            <th>Work Order</th>
-
-                            <th width="15%">Action</th>
+                            <th>Order No</th>
+                            <th>Action</th>
 
                         </thead>
 
 
                         <tbody>
 
-                        	@foreach($job as $key => $item)
                         <tr>
-                            <td> {{ $key+1}} </td>
-                            <td> {{ $item['customer']['name'] }} </td>
-                            <td> {{ $item['cuscustomer']['name'] }} </td>
-                            <td> {{ $item['customerjob']['name'] }} </td>
-                            <td> {{ $item['customerjoborder']['order'] }} </td>
+                            <td></td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
+                            <td>  </td>
                             <td>
-   {{-- <a href="{{ route ('job.edit',$item->id)}}" class="btn btn-info sm" title="Edit Data">  <i class="fas fa-edit"></i> </a> --}}
+
+   <a href="" class="btn btn-warning sm" title="Edit Data">  <i class="fas fa-edit"></i> </a>
 
      <a href="" class="btn btn-danger sm" title="Delete Data" id="delete">  <i class="fas fa-trash-alt"></i> </a>
 
                             </td>
 
                         </tr>
-                        @endforeach
+
 
                         </tbody>
                     </table>

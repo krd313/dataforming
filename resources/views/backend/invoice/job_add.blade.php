@@ -29,28 +29,11 @@
                 @csrf
 
 
-                <div class="col-md-3">
-                    <label for="inputState" class="form-label">State</label>
-                    <select name="customer_id" id="inputState" class="form-select">
-                        <option selected="">Choose...</option>
-                        @foreach($cuscustomer as $supp)
-                        <option value="{{ $supp->id }}">{{ $supp->name }}</option>
-                    @endforeach
-                    </select>
-                </div>
-                {{-- <div class="row mb-3">
-                    <label class="col-sm-2 col-form-label">Supplier Name </label>
-                    <div class="col-sm-10">
-                        <select name="customer_id" class="form-select" aria-label="Default select example">
-                            <option selected="">Open this select menu</option>
-                            @foreach($customer as $supp)
-                            <option value="{{ $supp->id }}">{{ $supp->name }}</option>
-                           @endforeach
-                            </select>
-                    </div>
-                </div> --}}
+
+
+
               <!-- end row -->
-                {{-- <div class="row mb-3">
+                <div class="row mb-3">
                     <div class="col-md-12">
                     <label class="form-label">Customer</label>
                         <div class="mb-3">
@@ -62,9 +45,9 @@
                             </select>
                         </div>
                     </div>
-                </div><!-- end row --> --}}
+                </div><!-- end row -->
 
-            <div class="row mb-3">
+             <div class="row mb-3">
                 <div class="col-md-12">
                 <label for="validationCustom01" class="form-label">Customer Customer</label>
                     <div class="mb-3">
@@ -78,12 +61,12 @@
                 </div>
             </div><!-- end row -->
 
-        <div class="row mb-3">
+         <div class="row mb-3">
             <div class="col-md-12">
             <label for="validationCustom01" class="form-label">Job Description</label>
                 <div class="mb-3">
                 <select name="customerjob_id" class="form-select" aria-label="Default select example">
-                    <option selected="">Open this select menu</option>
+                    <option selected="">0</option>
                     @foreach($customerjob as $item)
                     <option value="{{$item->id}}">{{$item->name}}</option>
                     @endforeach
@@ -97,7 +80,7 @@
             <label for="validationCustom01" class="form-label">Order No</label>
                 <div class="mb-3">
                 <select name="customerjob_order" class="form-select" aria-label="Default select example">
-                    <option selected="">Open this select menu</option>
+                    <option selected="">0</option>
                     @foreach($customerjob as $item)
                     <option value="{{$item->id}}">{{$item->order}}</option>
                     @endforeach
@@ -129,7 +112,6 @@
 </div>
 </div>
 
-
 <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({
@@ -141,7 +123,7 @@
             },
             messages :{
                 customer_id: {
-                    required : 'Please Enter Company Name',
+                    required : 'Please Enter Name',
                 },
 
             },
@@ -160,6 +142,7 @@
     });
 
 </script>
+
 
 
 

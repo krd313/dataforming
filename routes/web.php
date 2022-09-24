@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\JobController;
+use App\Http\Controllers\Backend\InvoiceController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\CusCustomerController;
 use App\Http\Controllers\Backend\CustomerJobController;
